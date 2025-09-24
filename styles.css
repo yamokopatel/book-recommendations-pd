@@ -1,0 +1,12 @@
+#book-form{
+    width: 600px;
+    margin: auto;
+    border-width: 3px;
+    border-color: #161616;
+    border-radius: 2px;
+    border-style: solid;
+}
+.form-label{
+    font-weight: bold;
+    font-size: 2rem;
+}
