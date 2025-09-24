@@ -14,7 +14,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully<br>";
 
@@ -23,3 +23,7 @@ $bookTitle = $_POST["title"];
 $reviewText = $_POST["review"];
 $rating = $_POST["rating"];
 $query = "INSERT INTO book_review (full_name, book_title, review_text, rating) VALUES ('$fullName','$bookTitle','$reviewText','$rating')";
+
+$conn->query($query);
+
+$conn->close();
