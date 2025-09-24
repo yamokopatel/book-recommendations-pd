@@ -1,6 +1,7 @@
 <a href="index.html">Atpakaļ</a>
 
 <?php
+require_once 'Review.php';
 
 echo "<br>Dati veiksmīgi nosutīti!<br>";
 
@@ -18,11 +19,15 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully<br>";
 
-$fullName = $_POST["name"] . " " . $_POST["surname"];
-$bookTitle = $_POST["title"];
-$reviewText = $_POST["review"];
-$rating = $_POST["rating"];
-$query = "INSERT INTO book_review (full_name, book_title, review_text, rating) VALUES ('$fullName','$bookTitle','$reviewText','$rating')";
+// $fullName = $_POST["name"] . " " . $_POST["surname"];
+// $bookTitle = $_POST["title"];
+// $reviewText = $_POST["review"];
+// $rating = $_POST["rating"];
+// $query = "INSERT INTO book_review (full_name, book_title, review_text, rating) VALUES ('$fullName','$bookTitle','$reviewText','$rating')";
+
+$review = new Review($_POST["name"],$_POST["surname"],$_POST["title"],$_POST["review"],$_POST["rating"]);
+//mistaked
+$query = "INSERT INTO book_review (full_name, book_title, review_text, rating) VALUES ('$review->getFullName()','$bookTitle','$reviewText','$rating')";
 
 $conn->query($query);
 
